@@ -1,0 +1,10 @@
+{
+	"DATABASE": {
+		"HOST": "<your psql server host/ip>",
+		"USER": "<your psql username>",
+		"PASSWORD": "<your password>",
+		"DB": "<your main database>"
+	},
+	"LOCAL_ALLOWED_HOSTS": ["*"],
+	"LOGIN_PASSWORD": "<login for the index>"
+}

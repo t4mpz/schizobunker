@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
+from .Configurations import Configurations
+
+CONFIGS = Configurations().configs
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -25,7 +29,7 @@ SECRET_KEY = 'q+7d1t%apj7j)v*42ggh)alpjngo$cxa4l@r-2g)&p(3i*5d0#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -75,8 +79,11 @@ WSGI_APPLICATION = 'bunkerserver.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'HOST': CONFIGS["DATABASE"]["HOST"],
+        'USER': CONFIGS["DATABASE"]["USER"],
+        'PASSWORD': CONFIGS['DATABASE']['PASSWORD'],
+        'NAME': CONFIGS['DATABASE']['DB']
     }
 }
 
