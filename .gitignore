@@ -2,3 +2,4 @@ config/config.json
 tests
 logs
 __pycache__
+*/__pycache__
